@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://gcpvga3fc32f"]
+
+[ext_resource type="Texture2D" uid="uid://d2us7y7fivb6n" path="res://mare-export.png" id="1_aa70j"]
+[ext_resource type="Script" uid="uid://c140gsiyl22ry" path="res://behaviors.gd" id="2_g88pc"]
+
+[sub_resource type="Animation" id="Animation_si8du"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fyqae"]
+resource_name = "idle"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3.37, 5.0333333),
+"transitions": PackedFloat32Array(1, -2, -2, -2),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.44156832, 0), Vector3(0.3926991, -0.027925268, 0), Vector3(0, 0.43633232, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gsr31"]
+_data = {
+&"RESET": SubResource("Animation_si8du"),
+&"idle": SubResource("Animation_fyqae")
+}
+
+[node name="maremare" type="Sprite3D"]
+texture = ExtResource("1_aa70j")
+script = ExtResource("2_g88pc")
+
+[node name="mareAnims" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_gsr31")
+}

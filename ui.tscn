@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cp26xup8rvuju"]
+[gd_scene load_steps=16 format=3 uid="uid://cp26xup8rvuju"]
 
 [ext_resource type="Texture2D" uid="uid://d1n5wjgmn3fvk" path="res://barBottom.png" id="1_n5ude"]
 [ext_resource type="Script" uid="uid://d1ho48tvx4ahb" path="res://sub_viewport_container.gd" id="1_y4yjw"]
@@ -10,6 +10,21 @@
 [ext_resource type="Texture2D" uid="uid://cwhqcy8wptwyf" path="res://commands.png" id="8_ok7cu"]
 [ext_resource type="Texture2D" uid="uid://culwf42ifdunu" path="res://window.png" id="8_waa4j"]
 [ext_resource type="Texture2D" uid="uid://cb5qv4ofhab3g" path="res://cursor.png" id="9_irxef"]
+
+[sub_resource type="Animation" id="Animation_ok7cu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_waa4j"]
 resource_name = "hurt"
@@ -27,21 +42,6 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(32, 0), Vector2(0, 0), Vector2(-32, 0), Vector2(0, 0), Vector2(32, 0), Vector2(0, 0), Vector2(32, 0), Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_ok7cu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_irxef"]
 _data = {
 &"RESET": SubResource("Animation_ok7cu"),
@@ -56,80 +56,6 @@ shader_parameter/b_displacement = Vector2(-3, 0)
 shader_parameter/height = 0.7
 shader_parameter/width = 0.5
 shader_parameter/fade = 0.7
-
-[sub_resource type="Animation" id="Animation_irxef"]
-resource_name = "raise"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 2),
-"update": 0,
-"values": [Vector2(88, 180), Vector2(88, 172)]
-}
-
-[sub_resource type="Animation" id="Animation_e2l4f"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(88, 180)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_n5rqp"]
-_data = {
-&"RESET": SubResource("Animation_e2l4f"),
-&"raise": SubResource("Animation_irxef")
-}
-
-[sub_resource type="Animation" id="Animation_gs482"]
-resource_name = "raise"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../skill:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(136, 180)]
-}
-
-[sub_resource type="Animation" id="Animation_cxd00"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../skill:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(136, 180)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_etlur"]
-_data = {
-&"RESET": SubResource("Animation_cxd00"),
-&"raise": SubResource("Animation_gs482")
-}
 
 [sub_resource type="Theme" id="Theme_ok7cu"]
 default_font = ExtResource("5_irxef")
@@ -186,76 +112,72 @@ libraries = {
 &"": SubResource("AnimationLibrary_irxef")
 }
 
-[node name="commands" type="Control" parent="status"]
+[node name="command2" type="Control" parent="status"]
+visible = false
 material = SubResource("ShaderMaterial_fyqae")
-anchors_preset = 0
-offset_right = 320.0
-offset_bottom = 240.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -320.0
+offset_bottom = -240.0
 scale = Vector2(2, 2)
 
+[node name="commands" type="Node2D" parent="status"]
+
 [node name="fight" type="Sprite2D" parent="status/commands"]
-position = Vector2(88, 180)
+position = Vector2(176, 360)
+scale = Vector2(2, 2)
 texture = ExtResource("8_ok7cu")
 region_enabled = true
 region_rect = Rect2(0, 0, 43, 9)
 
-[node name="fightAnim" type="AnimationPlayer" parent="status/commands/fight"]
-libraries = {
-&"": SubResource("AnimationLibrary_n5rqp")
-}
-
 [node name="skill" type="Sprite2D" parent="status/commands"]
-position = Vector2(136, 180)
+position = Vector2(272, 360)
+scale = Vector2(2, 2)
 texture = ExtResource("8_ok7cu")
 region_enabled = true
 region_rect = Rect2(0, 9, 43, 9)
 
-[node name="skillAnim" type="AnimationPlayer" parent="status/commands/skill"]
-root_node = NodePath("../../fight")
-libraries = {
-&"": SubResource("AnimationLibrary_etlur")
-}
-
 [node name="item" type="Sprite2D" parent="status/commands"]
-position = Vector2(184, 180)
+position = Vector2(368, 360)
+scale = Vector2(2, 2)
 texture = ExtResource("8_ok7cu")
 region_enabled = true
 region_rect = Rect2(0, 18, 43, 9)
 
-[node name="itemAnim" type="AnimationPlayer" parent="status/commands/item"]
-root_node = NodePath("../../fight")
-
 [node name="run" type="Sprite2D" parent="status/commands"]
-position = Vector2(232, 180)
+position = Vector2(464, 360)
+scale = Vector2(2, 2)
 texture = ExtResource("8_ok7cu")
 region_enabled = true
 region_rect = Rect2(0, 27, 43, 9)
 
-[node name="runAnim" type="AnimationPlayer" parent="status/commands/run"]
-root_node = NodePath("../../fight")
-
 [node name="cursor" type="Sprite2D" parent="status/commands"]
-position = Vector2(-4, 4)
+visible = false
+position = Vector2(-8, 8)
+scale = Vector2(2, 2)
 texture = ExtResource("9_irxef")
 
 [node name="window" type="NinePatchRect" parent="."]
-visible = false
+clip_contents = true
 layout_mode = 0
-offset_left = 192.0
-offset_top = 104.0
-offset_right = 448.0
-offset_bottom = 152.0
+offset_left = 128.0
+offset_top = 24.0
+offset_right = 512.0
+offset_bottom = 128.0
 texture = ExtResource("8_waa4j")
 patch_margin_left = 16
 patch_margin_top = 16
 patch_margin_right = 16
 patch_margin_bottom = 16
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="window"]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 236.0
-offset_bottom = 31.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 244.0
+offset_bottom = 39.0
 theme = SubResource("Theme_ok7cu")
-text = "Maremares appeared."
+text = "* Maremares appeared."
