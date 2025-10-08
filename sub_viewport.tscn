@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://buc36jm6q3s6f"]
+
+[ext_resource type="Texture2D" uid="uid://dwtm8vm1h6pqd" path="res://pulse.png" id="1_vp4ha"]
+
+[node name="SubViewport" type="SubViewport"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vp4ha")
