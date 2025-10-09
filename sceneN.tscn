@@ -102,3 +102,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49210668, 0, -1.5)
 
 [node name="maremare2" parent="." instance=ExtResource("5_qb516")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.492, 0, -1.5)
+
+[node name="Marker3D" type="Marker3D" parent="."]

@@ -1,7 +1,10 @@
 extends Control
 #im so sorry but i didnt feel like writing efficient code lol
-@onready var hpBar=$status/TextureProgressBar
+@onready var hpBar=$status/healthBar
 @onready var hpText=$status/healthText
+@onready var focusBar=$status/focusBar
+@onready var focusText=$status/focusText
+
 @onready var cursor=$status/commands/cursor
 #var selectSFX=preload("res://select.tscn")
 
@@ -27,33 +30,46 @@ func _process(_delta):
 			"fight":
 				$status/commands/fight.set_modulate(Color(1.0, 1.0, 1.0, 1.0))
 				if Input.is_action_just_pressed("ui_right"):
+					$status/commands/selectSFX.play()
 					$status/commands/fight.set_modulate(Color(1.0, 1.0, 1.0, .5))
 					selected="skill"
 				elif Input.is_action_just_pressed("ui_left"):
+					$status/commands/selectSFX.play()
 					$status/commands/fight.set_modulate(Color(1.0, 1.0, 1.0, .5))
 					selected="run"
 			"skill":
 				$status/commands/skill.set_modulate(Color(1.0, 1.0, 1.0, 1.0))
 				if Input.is_action_just_pressed("ui_right"):
+					$status/commands/selectSFX.play()
 					$status/commands/skill.set_modulate(Color(1.0, 1.0, 1.0, .5))
 					selected="item"
 				elif Input.is_action_just_pressed("ui_left"):
+					$status/commands/selectSFX.play()
 					print("02")
 					$status/commands/skill.set_modulate(Color(1.0, 1.0, 1.0, .5))
 					selected="fight"
 			"item":
 				$status/commands/item.set_modulate(Color(1,1,1,1))
 				if Input.is_action_just_pressed("ui_right"):
+					$status/commands/selectSFX.play()
 					$status/commands/item.set_modulate(Color(1.0, 1.0, 1.0, .5))
 					selected="run"
 				elif Input.is_action_just_pressed("ui_left"):
+					$status/commands/selectSFX.play()
 					$status/commands/item.set_modulate(Color(1.0, 1.0, 1.0, .5))
 					selected="skill"
 			"run":
 				$status/commands/run.set_modulate(Color(1,1,1,1))
 				if Input.is_action_just_pressed("ui_right"):
+					$status/commands/selectSFX.play()
 					$status/commands/run.set_modulate(Color(1.0, 1.0, 1.0, .5))
 					selected="fight"
 				elif Input.is_action_just_pressed("ui_left"):
+					$status/commands/selectSFX.play()
 					$status/commands/run.set_modulate(Color(1.0, 1.0, 1.0, .5))
 					selected="item"
+		if Input.is_action_just_pressed("ui_accept"):
+			$status/commands/selectSFX.play()
+			uiState=selected
+	if uiState=="fight":
+		pass

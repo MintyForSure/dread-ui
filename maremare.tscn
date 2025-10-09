@@ -49,3 +49,6 @@ script = ExtResource("2_g88pc")
 libraries = {
 &"": SubResource("AnimationLibrary_gsr31")
 }
+
+[node name="enemyCamPos" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5767313)
