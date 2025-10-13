@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://gcpvga3fc32f"]
+[gd_scene load_steps=7 format=3 uid="uid://gcpvga3fc32f"]
 
-[ext_resource type="Texture2D" uid="uid://d2us7y7fivb6n" path="res://mare-export.png" id="1_aa70j"]
-[ext_resource type="Script" uid="uid://c140gsiyl22ry" path="res://behaviors.gd" id="2_g88pc"]
+[ext_resource type="Texture2D" uid="uid://cu3pgkrk24t3c" path="res://assets/gfx/actors/battle/mare.png" id="1_g88pc"]
+[ext_resource type="Texture2D" uid="uid://cb2x3fg5h1bi1" path="res://speck.png" id="2_aa70j"]
+[ext_resource type="Script" uid="uid://c140gsiyl22ry" path="res://assets/scripts/behaviors.gd" id="2_g88pc"]
 
 [sub_resource type="Animation" id="Animation_si8du"]
 length = 0.001
@@ -41,14 +42,23 @@ _data = {
 &"idle": SubResource("Animation_fyqae")
 }
 
-[node name="maremare" type="Sprite3D"]
-texture = ExtResource("1_aa70j")
+[node name="maremare" type="Node3D"]
+
+[node name="maremare" type="Sprite3D" parent="."]
+texture_filter = 0
+texture = ExtResource("1_g88pc")
 script = ExtResource("2_g88pc")
 
-[node name="mareAnims" type="AnimationPlayer" parent="."]
+[node name="mareAnims" type="AnimationPlayer" parent="maremare"]
 libraries = {
 &"": SubResource("AnimationLibrary_gsr31")
 }
 
+[node name="shadow" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.356, 0)
+modulate = Color(1, 1, 1, 0.20784314)
+texture_filter = 0
+texture = ExtResource("2_aa70j")
+
 [node name="enemyCamPos" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5767313)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.554)

@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://cgrtctc6gm8sq"]
+[gd_scene load_steps=10 format=3 uid="uid://cgrtctc6gm8sq"]
 
 [ext_resource type="Texture2D" uid="uid://dwtm8vm1h6pqd" path="res://pulse.png" id="2_4q7kf"]
-[ext_resource type="Texture2D" uid="uid://b2wwyx4ohptaw" path="res://speck.png" id="3_ngj8e"]
 [ext_resource type="PackedScene" uid="uid://cp26xup8rvuju" path="res://ui.tscn" id="4_qb516"]
 [ext_resource type="PackedScene" uid="uid://gcpvga3fc32f" path="res://maremare.tscn" id="5_qb516"]
 [ext_resource type="Shader" uid="uid://bfkloh0803rn8" path="res://sceneN.gdshader" id="6_0iyqg"]
@@ -69,20 +68,6 @@ position = Vector2(320, 239.99998)
 scale = Vector2(4.923077, 3.6923077)
 texture = ExtResource("2_4q7kf")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="Sprite2D"]
-visible = false
-position = Vector2(78, -2.1666625)
-rotation = 1.5707964
-amount = 32
-texture = ExtResource("3_ngj8e")
-lifetime = 8.0
-local_coords = true
-emission_shape = 3
-emission_rect_extents = Vector2(48, 0)
-gravity = Vector2(0, 50)
-scale_amount_min = 0.1
-scale_amount_max = 0.5
-
 [node name="Control" parent="." instance=ExtResource("4_qb516")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -97,10 +82,7 @@ libraries = {
 }
 autoplay = "idle"
 
-[node name="maremare" parent="." instance=ExtResource("5_qb516")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49210668, 0, -1.5)
-
-[node name="maremare2" parent="." instance=ExtResource("5_qb516")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.492, 0, -1.5)
-
 [node name="Marker3D" type="Marker3D" parent="."]
+
+[node name="maremare" parent="." instance=ExtResource("5_qb516")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.3097628)

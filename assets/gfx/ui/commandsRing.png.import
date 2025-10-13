@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://coj1qefsp06co"
-path.s3tc="res://.godot/imported/sky.png-26d2f2385da36d2602e95bc19d12fcc5.s3tc.ctex"
+uid="uid://by4ss5ajdxbqb"
+path.s3tc="res://.godot/imported/commandsRing.png-06a8196fb7c2873519e9ff9c9bee4d0a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://sky.png"
-dest_files=["res://.godot/imported/sky.png-26d2f2385da36d2602e95bc19d12fcc5.s3tc.ctex"]
+source_file="res://assets/gfx/ui/commandsRing.png"
+dest_files=["res://.godot/imported/commandsRing.png-06a8196fb7c2873519e9ff9c9bee4d0a.s3tc.ctex"]
 
 [params]
 

@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg1gofdwixww5"]
+
+[ext_resource type="Texture2D" uid="uid://by4ss5ajdxbqb" path="res://assets/gfx/ui/commandsRing.png" id="1_307cq"]
+
+[node name="SubViewport" type="SubViewport"]
+transparent_bg = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="commands" type="Node3D" parent="CanvasLayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="fight" type="Sprite3D" parent="CanvasLayer/commands"]
+texture = ExtResource("1_307cq")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 32)
+
+[node name="strat" type="Sprite3D" parent="CanvasLayer/commands"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.475, -0.2, 0)
+texture = ExtResource("1_307cq")
+region_enabled = true
+region_rect = Rect2(0, 32, 64, 32)
+
+[node name="flee" type="Sprite3D" parent="CanvasLayer/commands"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, -0.4, 0)
+texture = ExtResource("1_307cq")
+region_enabled = true
+region_rect = Rect2(0, 96, 64, 32)
+
+[node name="item" type="Sprite3D" parent="CanvasLayer/commands"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.475, -0.2, 0)
+texture = ExtResource("1_307cq")
+region_enabled = true
+region_rect = Rect2(0, 64, 64, 32)
