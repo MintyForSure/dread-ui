@@ -5,7 +5,7 @@ extends Control
 @onready var focusBar=$status/focusBar
 @onready var focusText=$status/focusText
 
-@onready var cursor=$status/commands/cursor
+# @onready var cursor=$status/commands/cursor
 #var selectSFX=preload("res://select.tscn")
 
 #var selected=["fight","skill","item","run"]
@@ -26,6 +26,10 @@ func _process(delta):
 	hpText.text=str(health)
 	#cursor.position.x
 	match uiState:
+		"typingMainWindow":
+			pass
+		"busyTextWindow":
+			pass
 		"actionPick":
 			if Input.is_action_just_pressed("ui_up"):
 				$status/commands/selectSFX.play()

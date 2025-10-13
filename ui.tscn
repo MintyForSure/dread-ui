@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cp26xup8rvuju"]
+[gd_scene load_steps=22 format=3 uid="uid://cp26xup8rvuju"]
 
 [ext_resource type="Texture2D" uid="uid://d1n5wjgmn3fvk" path="res://assets/gfx/ui/barBottom.png" id="1_n5ude"]
 [ext_resource type="Script" uid="uid://d1ho48tvx4ahb" path="res://assets/scripts/sub_viewport_container.gd" id="1_y4yjw"]
@@ -6,62 +6,15 @@
 [ext_resource type="Texture2D" uid="uid://qu0iy0bc6db6" path="res://status.png" id="3_waa4j"]
 [ext_resource type="Texture2D" uid="uid://7spguahkvwdh" path="res://assets/gfx/ui/bar.png" id="4_ok7cu"]
 [ext_resource type="Texture2D" uid="uid://b38lrsybnmtol" path="res://assets/gfx/ui/barHP.png" id="5_e2l4f"]
-[ext_resource type="FontFile" uid="uid://c0nfqkirmywwl" path="res://QuinqueFive.ttf" id="5_irxef"]
+[ext_resource type="FontFile" uid="uid://c0nfqkirmywwl" path="res://assets/fonts/QuinqueFive.ttf" id="5_irxef"]
 [ext_resource type="Texture2D" uid="uid://by4ss5ajdxbqb" path="res://assets/gfx/ui/commandsRing.png" id="8_e2l4f"]
 [ext_resource type="Texture2D" uid="uid://culwf42ifdunu" path="res://window.png" id="8_waa4j"]
 [ext_resource type="AudioStream" uid="uid://b3lyujqk4ojcd" path="res://select.wav" id="10_e2l4f"]
+[ext_resource type="Texture2D" uid="uid://caywscxjxtuhn" path="res://assets/gfx/Sprite-0003.png" id="11_e2l4f"]
 
-[sub_resource type="Animation" id="Animation_irxef"]
-resource_name = "fightNoFade"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("fight:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(0.5, 1),
-"update": 0,
-"values": [Vector2(2, 2), Vector2(2.5, 2.5)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("skill:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(0.5, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.5)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("run:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(0.5, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.5)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("item:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(0.5, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.5)]
-}
+[sub_resource type="Theme" id="Theme_e2l4f"]
+default_font = ExtResource("5_irxef")
+default_font_size = 10
 
 [sub_resource type="Animation" id="Animation_e2l4f"]
 length = 0.001
@@ -114,32 +67,32 @@ tracks/3/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_n5rqp"]
-resource_name = "stratNoFade"
+[sub_resource type="Animation" id="Animation_irxef"]
+resource_name = "fightNoFade"
 length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("fight:modulate")
+tracks/0/path = NodePath("fight:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.5)]
+"values": [Vector2(2, 2), Vector2(2.5, 2.5)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("skill:scale")
+tracks/1/path = NodePath("skill:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
-"values": [Vector2(2, 2), Vector2(2.5, 2.5)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.5)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -218,6 +171,58 @@ tracks/3/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.5)]
 }
 
+[sub_resource type="Animation" id="Animation_n5rqp"]
+resource_name = "stratNoFade"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fight:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("skill:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(2.5, 2.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("run:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("item:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.5)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cxd00"]
 _data = {
 &"RESET": SubResource("Animation_e2l4f"),
@@ -230,16 +235,34 @@ _data = {
 default_font = ExtResource("5_irxef")
 default_font_size = 10
 
-[sub_resource type="Theme" id="Theme_ok7cu"]
-default_font = ExtResource("5_irxef")
-default_font_size = 10
-/fonts/font = ExtResource("5_irxef")
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5rqp"]
+atlas = ExtResource("11_e2l4f")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gs482"]
+atlas = ExtResource("11_e2l4f")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cxd00"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5rqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gs482")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+theme = SubResource("Theme_e2l4f")
 script = ExtResource("1_y4yjw")
 
 [node name="barTop" type="TextureRect" parent="."]
@@ -308,7 +331,6 @@ horizontal_alignment = 2
 [node name="commands" type="Node2D" parent="status"]
 
 [node name="fight" type="Sprite2D" parent="status/commands"]
-modulate = Color(1, 1, 1, 0.5)
 position = Vector2(488, 376)
 scale = Vector2(2, 2)
 texture = ExtResource("8_e2l4f")
@@ -331,7 +353,7 @@ region_rect = Rect2(0, 64, 64, 32)
 
 [node name="run" type="Sprite2D" parent="status/commands"]
 position = Vector2(488, 456)
-scale = Vector2(2.5, 2.5)
+scale = Vector2(2, 2)
 texture = ExtResource("8_e2l4f")
 region_enabled = true
 region_rect = Rect2(0, 96, 64, 32)
@@ -375,11 +397,15 @@ patch_margin_top = 16
 patch_margin_right = 16
 patch_margin_bottom = 16
 
-[node name="Label" type="Label" parent="window"]
+[node name="text" type="RichTextLabel" parent="window"]
 layout_mode = 0
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 244.0
-offset_bottom = 39.0
-theme = SubResource("Theme_ok7cu")
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 376.0
+offset_bottom = 80.0
 text = "* Maremares appeared."
+
+[node name="continueIcon" type="AnimatedSprite2D" parent="window"]
+position = Vector2(368, 72)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_cxd00")

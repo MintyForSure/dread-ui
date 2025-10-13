@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://2wm1vnj6aqih"
-path="res://.godot/imported/dungeon-mode.ttf-5cac1be6dd3942be4307989e648dda29.fontdata"
+uid="uid://c0nfqkirmywwl"
+path="res://.godot/imported/QuinqueFive.ttf-f99879eb0152c4e131357bcf1819879f.fontdata"
 
 [deps]
 
-source_file="res://dungeon-mode.ttf"
-dest_files=["res://.godot/imported/dungeon-mode.ttf-5cac1be6dd3942be4307989e648dda29.fontdata"]
+source_file="res://assets/fonts/QuinqueFive.ttf"
+dest_files=["res://.godot/imported/QuinqueFive.ttf-f99879eb0152c4e131357bcf1819879f.fontdata"]
 
 [params]
 
