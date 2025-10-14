@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://06sjdfaoiwvt"]
 
 [ext_resource type="Theme" uid="uid://ditffwdpwhqsc" path="res://assets/scenes/system/window.tres" id="1_7ma78"]
-[ext_resource type="Texture2D" uid="uid://culwf42ifdunu" path="res://window.png" id="1_ywt05"]
+[ext_resource type="Texture2D" uid="uid://culwf42ifdunu" path="res://assets/gfx/ui/window.png" id="1_ywt05"]
 [ext_resource type="Texture2D" uid="uid://caywscxjxtuhn" path="res://assets/gfx/Sprite-0003.png" id="2_1lium"]
 [ext_resource type="Script" uid="uid://bwei6qlpxs7jh" path="res://assets/scripts/window.gd" id="3_m08t8"]
-[ext_resource type="AudioStream" uid="uid://b3lyujqk4ojcd" path="res://select.wav" id="5_m08t8"]
+[ext_resource type="AudioStream" uid="uid://b3lyujqk4ojcd" path="res://assets/snd/select.wav" id="5_m08t8"]
 
 [sub_resource type="Animation" id="Animation_m08t8"]
 length = 0.001

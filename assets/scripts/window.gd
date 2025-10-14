@@ -11,7 +11,7 @@ func windowInit(length,width):
 func textWindow(text,whereTo=null,quickWindow=null,center=null):
 	if quickWindow==true:
 		$text.set_text(text)
-		$continueIcon.visible=false	
+		$continueIcon.visible=false
 	match windowState:
 		"busy":
 			$continueIcon.visible=false
