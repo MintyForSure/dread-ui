@@ -1,9 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://cgrtctc6gm8sq"]
+[gd_scene load_steps=15 format=3 uid="uid://cgrtctc6gm8sq"]
 
 [ext_resource type="Texture2D" uid="uid://dwtm8vm1h6pqd" path="res://pulse.png" id="2_4q7kf"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_4q7kf"]
+[ext_resource type="Script" uid="uid://ch3aypeyq8wu6" path="res://assets/scripts/battleCam.gd" id="4_ngj8e"]
 [ext_resource type="PackedScene" uid="uid://cp26xup8rvuju" path="res://ui.tscn" id="4_qb516"]
 [ext_resource type="PackedScene" uid="uid://gcpvga3fc32f" path="res://maremare.tscn" id="5_qb516"]
-[ext_resource type="Shader" uid="uid://bfkloh0803rn8" path="res://sceneN.gdshader" id="6_0iyqg"]
+[ext_resource type="Shader" uid="uid://bfkloh0803rn8" path="res://assets/scripts/shaders/sceneN.gdshader" id="6_0iyqg"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="6_ngj8e"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_q04f2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ngj8e"]
 shader = ExtResource("6_0iyqg")
@@ -60,29 +64,51 @@ _data = {
 &"idle": SubResource("Animation_qb516")
 }
 
+[sub_resource type="Resource" id="Resource_fyqae"]
+script = ExtResource("7_q04f2")
+
 [node name="scene" type="Node3D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="bg" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_ngj8e")
 position = Vector2(320, 239.99998)
 scale = Vector2(4.923077, 3.6923077)
 texture = ExtResource("2_4q7kf")
 
-[node name="Control" parent="." instance=ExtResource("4_qb516")]
+[node name="battleUI" parent="." instance=ExtResource("4_qb516")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4q7kf")
 
-[node name="mainCam" type="Camera3D" parent="."]
+[node name="battleCam" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.993961, 0.10973431, 0, -0.10973431, 0.993961, 0, 0, 0)
 current = true
+script = ExtResource("4_ngj8e")
 
-[node name="cameraAnims" type="AnimationPlayer" parent="mainCam"]
+[node name="cameraAnims" type="AnimationPlayer" parent="battleCam"]
 libraries = {
 &"": SubResource("AnimationLibrary_4q7kf")
 }
-autoplay = "idle"
 
-[node name="Marker3D" type="Marker3D" parent="."]
+[node name="PhantomCameraHost" type="Node" parent="battleCam"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("4_4q7kf")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
-[node name="maremare" parent="." instance=ExtResource("5_qb516")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.3097628)
+[node name="lookie" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.2261736)
+
+[node name="pcam" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.993961, 0.10973431, 0, -0.10973431, 0.993961, 0, 0.114025295, 0)
+script = ExtResource("6_ngj8e")
+tween_resource = SubResource("Resource_fyqae")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="enemies" type="Node3D" parent="."]
+
+[node name="maremare" parent="enemies" instance=ExtResource("5_qb516")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, -1.31)
+
+[node name="maremare2" parent="enemies" instance=ExtResource("5_qb516")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, -1.31)

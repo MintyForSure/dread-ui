@@ -1,0 +1,107 @@
+[gd_scene load_steps=12 format=3 uid="uid://06sjdfaoiwvt"]
+
+[ext_resource type="Theme" uid="uid://ditffwdpwhqsc" path="res://assets/scenes/system/window.tres" id="1_7ma78"]
+[ext_resource type="Texture2D" uid="uid://culwf42ifdunu" path="res://window.png" id="1_ywt05"]
+[ext_resource type="Texture2D" uid="uid://caywscxjxtuhn" path="res://assets/gfx/Sprite-0003.png" id="2_1lium"]
+[ext_resource type="Script" uid="uid://bwei6qlpxs7jh" path="res://assets/scripts/window.gd" id="3_m08t8"]
+[ext_resource type="AudioStream" uid="uid://b3lyujqk4ojcd" path="res://select.wav" id="5_m08t8"]
+
+[sub_resource type="Animation" id="Animation_m08t8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_7ma78"]
+resource_name = "start"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8a1vb"]
+_data = {
+&"RESET": SubResource("Animation_m08t8"),
+&"start": SubResource("Animation_7ma78")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5rqp"]
+atlas = ExtResource("2_1lium")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gs482"]
+atlas = ExtResource("2_1lium")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cxd00"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5rqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gs482")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="window" type="NinePatchRect"]
+clip_contents = true
+offset_left = 128.0
+offset_top = 24.0
+offset_right = 512.0
+offset_bottom = 112.0
+theme = ExtResource("1_7ma78")
+texture = ExtResource("1_ywt05")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+script = ExtResource("3_m08t8")
+
+[node name="text" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 362.0
+offset_bottom = 78.0
+scroll_active = false
+scroll_following = true
+scroll_following_visible_characters = true
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="appearingText" type="AnimationPlayer" parent="text"]
+libraries = {
+&"": SubResource("AnimationLibrary_8a1vb")
+}
+
+[node name="continueIcon" type="AnimatedSprite2D" parent="."]
+position = Vector2(368, 72)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_cxd00")
+frame_progress = 0.6046921
+
+[node name="continueSFX" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_m08t8")

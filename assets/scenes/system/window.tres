@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://ditffwdpwhqsc"]
+
+[ext_resource type="FontFile" uid="uid://c0nfqkirmywwl" path="res://assets/fonts/QuinqueFive.ttf" id="1_sntah"]
+
+[resource]
+default_font = ExtResource("1_sntah")
+default_font_size = 10

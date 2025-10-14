@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cp26xup8rvuju"]
+[gd_scene load_steps=20 format=3 uid="uid://cp26xup8rvuju"]
 
 [ext_resource type="Texture2D" uid="uid://d1n5wjgmn3fvk" path="res://assets/gfx/ui/barBottom.png" id="1_n5ude"]
 [ext_resource type="Script" uid="uid://d1ho48tvx4ahb" path="res://assets/scripts/sub_viewport_container.gd" id="1_y4yjw"]
@@ -8,9 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://b38lrsybnmtol" path="res://assets/gfx/ui/barHP.png" id="5_e2l4f"]
 [ext_resource type="FontFile" uid="uid://c0nfqkirmywwl" path="res://assets/fonts/QuinqueFive.ttf" id="5_irxef"]
 [ext_resource type="Texture2D" uid="uid://by4ss5ajdxbqb" path="res://assets/gfx/ui/commandsRing.png" id="8_e2l4f"]
-[ext_resource type="Texture2D" uid="uid://culwf42ifdunu" path="res://window.png" id="8_waa4j"]
 [ext_resource type="AudioStream" uid="uid://b3lyujqk4ojcd" path="res://select.wav" id="10_e2l4f"]
-[ext_resource type="Texture2D" uid="uid://caywscxjxtuhn" path="res://assets/gfx/Sprite-0003.png" id="11_e2l4f"]
+[ext_resource type="PackedScene" uid="uid://06sjdfaoiwvt" path="res://assets/scenes/system/window.tscn" id="10_irxef"]
 
 [sub_resource type="Theme" id="Theme_e2l4f"]
 default_font = ExtResource("5_irxef")
@@ -65,6 +64,34 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 128)]
+}
+
+[sub_resource type="Animation" id="Animation_cxd00"]
+resource_name = "appear"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.5, 2),
+"update": 0,
+"values": [Vector2(0, 128), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_irxef"]
@@ -171,6 +198,58 @@ tracks/3/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.5)]
 }
 
+[sub_resource type="Animation" id="Animation_etlur"]
+resource_name = "itemNoFade"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fight:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("skill:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("run:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("item:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(2.5, 2.5)]
+}
+
 [sub_resource type="Animation" id="Animation_n5rqp"]
 resource_name = "stratNoFade"
 length = 0.1
@@ -226,8 +305,10 @@ tracks/3/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cxd00"]
 _data = {
 &"RESET": SubResource("Animation_e2l4f"),
+&"appear": SubResource("Animation_cxd00"),
 &"fightNoFade": SubResource("Animation_irxef"),
 &"fleeNoFade": SubResource("Animation_gs482"),
+&"itemNoFade": SubResource("Animation_etlur"),
 &"stratNoFade": SubResource("Animation_n5rqp")
 }
 
@@ -235,29 +316,7 @@ _data = {
 default_font = ExtResource("5_irxef")
 default_font_size = 10
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_n5rqp"]
-atlas = ExtResource("11_e2l4f")
-region = Rect2(0, 0, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gs482"]
-atlas = ExtResource("11_e2l4f")
-region = Rect2(8, 0, 8, 8)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_cxd00"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n5rqp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gs482")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[node name="Control" type="Control"]
+[node name="battleUI" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -329,6 +388,7 @@ text = "20%"
 horizontal_alignment = 2
 
 [node name="commands" type="Node2D" parent="status"]
+position = Vector2(0, 128)
 
 [node name="fight" type="Sprite2D" parent="status/commands"]
 position = Vector2(488, 376)
@@ -359,6 +419,7 @@ region_enabled = true
 region_rect = Rect2(0, 96, 64, 32)
 
 [node name="commandAnims" type="AnimationPlayer" parent="status/commands"]
+unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_cxd00")
 }
@@ -384,28 +445,22 @@ text = "fsafgasg"
 layout_mode = 2
 text = "fsafgasg"
 
-[node name="window" type="NinePatchRect" parent="."]
-clip_contents = true
+[node name="window" parent="." instance=ExtResource("10_irxef")]
 layout_mode = 0
-offset_left = 128.0
-offset_top = 24.0
-offset_right = 512.0
-offset_bottom = 112.0
-texture = ExtResource("8_waa4j")
-patch_margin_left = 16
-patch_margin_top = 16
-patch_margin_right = 16
-patch_margin_bottom = 16
+offset_left = 0.0
+offset_top = 16.0
+offset_right = 384.0
+offset_bottom = 104.0
 
-[node name="text" type="RichTextLabel" parent="window"]
+[node name="targetNameWindow" parent="." instance=ExtResource("10_irxef")]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 376.0
-offset_bottom = 80.0
-text = "* Maremares appeared."
+offset_left = 0.0
+offset_top = -96.0
+offset_right = 384.0
+offset_bottom = -8.0
 
-[node name="continueIcon" type="AnimatedSprite2D" parent="window"]
-position = Vector2(368, 72)
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_cxd00")
+[node name="windowPos" type="Marker2D" parent="."]
+position = Vector2(128, 16)
+
+[node name="enemyNamePos" type="Marker2D" parent="windowPos"]
+position = Vector2(128, 64)
