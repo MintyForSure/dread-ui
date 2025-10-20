@@ -81,13 +81,15 @@ script = ExtResource("3_m08t8")
 
 [node name="text" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 10.0
+offset_left = 16.0
 offset_top = 10.0
-offset_right = 362.0
+offset_right = 368.0
 offset_bottom = 78.0
+theme = ExtResource("1_7ma78")
 scroll_active = false
 scroll_following = true
 scroll_following_visible_characters = true
+shortcut_keys_enabled = false
 visible_characters = 0
 visible_ratio = 0.0
 

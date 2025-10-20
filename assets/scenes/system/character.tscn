@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c11pt42mf4oew"]
+
+[ext_resource type="Script" uid="uid://b3ck3sfdsubps" path="res://assets/scripts/character.gd" id="1_5r211"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oxe2d"]
+size = Vector3(1, 1.8789063, 1)
+
+[node name="characterBody3d" type="CharacterBody3D"]
+script = ExtResource("1_5r211")
+
+[node name="collisionShape3d" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43945313, 0)
+shape = SubResource("BoxShape3D_oxe2d")
+
+[node name="camera3d" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9124851, 0)
+current = true

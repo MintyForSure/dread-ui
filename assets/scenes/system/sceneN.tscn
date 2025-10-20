@@ -11,8 +11,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ngj8e"]
 shader = ExtResource("1_qnovi")
-shader_parameter/movement_speed = 0.1
-shader_parameter/movement_scale = 2.0
+shader_parameter/movement_speed = 0.10000000475
+shader_parameter/movement_scale = 1.0000000475
 shader_parameter/color_1 = Color(0.28, 0.030800004, 0.030800004, 1)
 shader_parameter/color_2 = Color(0.07058824, 0.039215688, 0.06666667, 1)
 
@@ -100,6 +100,7 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.2261736)
 
 [node name="pcam" type="Node3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.993961, 0.10973431, 0, -0.10973431, 0.993961, 0, 0.114025295, 0)
 script = ExtResource("6_7pqw8")
 tween_resource = SubResource("Resource_fyqae")
@@ -107,8 +108,8 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="enemies" type="Node3D" parent="."]
 
-[node name="maremare" parent="enemies" instance=ExtResource("8_7f2a6")]
+[node name="maremare A" parent="enemies" instance=ExtResource("8_7f2a6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, -1.31)
 
-[node name="maremare2" parent="enemies" instance=ExtResource("8_7f2a6")]
+[node name="maremare B" parent="enemies" instance=ExtResource("8_7f2a6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, -1.31)

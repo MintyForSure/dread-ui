@@ -1,0 +1,7 @@
+{
+	"playerBasicAttack": {"text": "%d attacks! \n"},
+	"playerRecievesDamage": {"text": "%d took %d damage. \n"},
+	"enemyBasicAttack": {"text": "%d attacks. \n"},
+	"enemyRecievesDamage": {"text": "%d took %d damage! \n"},
+	"maremareCharge": {"text": "%d charges at you! \n"}
+}

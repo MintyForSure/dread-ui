@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dl86vnvy1nhuc"]
+
+[ext_resource type="PackedScene" uid="uid://c11pt42mf4oew" path="res://assets/scenes/system/character.tscn" id="1_04nc4"]
+[ext_resource type="Texture2D" uid="uid://dwtm8vm1h6pqd" path="res://assets/gfx/pulse.png" id="2_clcov"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_nipg5"]
+
+[node name="debugWorld" type="Node3D"]
+
+[node name="staticBody3d" type="StaticBody3D" parent="."]
+
+[node name="collisionShape3d" type="CollisionShape3D" parent="staticBody3d"]
+shape = SubResource("WorldBoundaryShape3D_nipg5")
+
+[node name="characterBody3d" parent="." instance=ExtResource("1_04nc4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.454942, 0)
+
+[node name="sprite3d" type="Sprite3D" parent="."]
+billboard = 1
+texture_filter = 0
+texture = ExtResource("2_clcov")
