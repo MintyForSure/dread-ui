@@ -13,7 +13,7 @@
 shader = ExtResource("1_qnovi")
 shader_parameter/movement_speed = 0.10000000475
 shader_parameter/movement_scale = 1.0000000475
-shader_parameter/color_1 = Color(0.28, 0.030800004, 0.030800004, 1)
+shader_parameter/color_1 = Color(0.26, 0.026000006, 0.15469994, 1)
 shader_parameter/color_2 = Color(0.07058824, 0.039215688, 0.06666667, 1)
 
 [sub_resource type="Environment" id="Environment_4q7kf"]

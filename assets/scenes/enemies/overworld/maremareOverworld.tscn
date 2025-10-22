@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkj50l0632rqb"]
+
+[ext_resource type="Texture2D" uid="uid://cu3pgkrk24t3c" path="res://assets/gfx/actors/battle/mare.png" id="1_qj801"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o6hom"]
+radius = 0.29589844
+height = 0.8046875
+
+[node name="maremareOverworld" type="CharacterBody3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="sprite3d" type="Sprite3D" parent="."]
+billboard = 2
+texture_filter = 0
+texture = ExtResource("1_qj801")
+
+[node name="collisionShape3d" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.060483634, 0)
+shape = SubResource("CapsuleShape3D_o6hom")

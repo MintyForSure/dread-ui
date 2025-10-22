@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cb6fc2kjvvigi"]
+
+[ext_resource type="Texture2D" uid="uid://bg3162japitkr" path="res://assets/gfx/dark/texture_07.png" id="1_qaok3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_03tx4"]
+shading_mode = 2
+albedo_texture = ExtResource("1_qaok3")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_hljx0"]
+material = SubResource("StandardMaterial3D_03tx4")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i4gku"]
+
+[node name="testTiles" type="Node3D"]
+
+[node name="standard" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_hljx0")
+
+[node name="staticBody3d" type="StaticBody3D" parent="standard"]
+
+[node name="collisionShape3d" type="CollisionShape3D" parent="standard/staticBody3d"]
+shape = SubResource("BoxShape3D_i4gku")
